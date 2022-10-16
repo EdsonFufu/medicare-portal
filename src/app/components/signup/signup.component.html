@@ -1,0 +1,46 @@
+<!-- Start Slider part -->
+<div class="page_banner bg4">
+  <div class="bread_cumbs">
+    <div class="container">
+      <div class="page_title_breadcumbs">
+        <h3>SignUp</h3>
+        <ul>
+          <li><a href="#">Home</a>&#187;</li>
+          <li><a class="active" href="#">Signup</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Slider part -->
+
+<!-- Start Checkout -->
+<div class="shop_page_area">
+  <div class="container">
+    <div class="col-md-12 col-sm-8">
+      <div class="shop_content">
+        <div class="bill_details_part">
+          <h2 class="billtitle">Sign Up</h2>
+          <div class="bill_frm">
+            <form [formGroup]="formGroup" (ngSubmit)="signup()">
+              <div class="sbill_field">
+                <input type="text" class="fieldlt" placeholder="First Name" [formControlName] = "'first_name'" />
+                <input  type="text" class="fieldrt" placeholder="Last Name" [formControlName] = "'last_name'" />
+              </div>
+              <div class="sbill_field">
+                <input  type="email" class="fieldrt" placeholder="Email ID" [formControlName] = "'email'" />
+                <input type="password" class="fieldlt" placeholder="Password" [formControlName] = "'password'" />
+              </div>
+
+              <div class="sbill_field_lst">
+                <input type="submit" class="form_btn floatleft" style="width: 150px" value="Create Your Account" />
+                <input type="reset" class="bill_btn floatright" value="Reset" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Checkout -->

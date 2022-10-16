@@ -1,0 +1,42 @@
+<!-- Start Slider part -->
+<div class="page_banner bg4">
+  <div class="bread_cumbs">
+    <div class="container">
+      <div class="page_title_breadcumbs">
+        <h3>Login</h3>
+        <ul>
+          <li><a routerLink="/" >Home</a>&#187;</li>
+          <li><a class="active" href="#">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Slider part -->
+
+<!-- Start Checkout -->
+<div class="shop_page_area">
+  <div class="container">
+    <div class="col-md-12 col-sm-8">
+      <div class="shop_content">
+        <div class="bill_details_part">
+          <h2 class="billtitle">Login</h2>
+          <div class="bill_frm">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="sbill_field">
+                <input type="text" class="fieldful" [formControlName]="'username'" placeholder="Username" />
+              </div>
+              <div class="sbill_field">
+                <input type="password" class="fieldful" [formControlName]="'password'"  placeholder="Password" />
+              </div>
+              <div class="sbill_field_lst">
+                <button type="submit" class="form_btn floatleft" value="Login" >Login</button> &nbsp; <button type="button" class="form_btn floatright" style="width: 150px" routerLink="/signup"> Create Account </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Checkout -->

@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+/*div.nav::after {*/
+/*  display: block;*/
+/*  content: '';*/
+/*  clear: both;*/
+/*}*/
+
+/*div.nav ul {*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  list-style: none;*/
+/*}*/
+
+/*div.nav ul li {*/
+/*  float: left;*/
+/*  position: relative;*/
+/*}*/
+
+/*div.nav ul li a {*/
+/*  font-size: 15px;*/
+/*  font-weight: 700;*/
+/*  text-transform: uppercase;*/
+/*  color:#fff;*/
+/*  font-family: 'Karla', sans-serif;*/
+/*}*/
+
+/*div.nav ul li a:hover,*/
+/*div.nav ul li a:focus {*/
+/*  background: rgba(0, 0, 0, .15);*/
+/*}*/
+
+/*div.nav ul li a:focus {*/
+/*  color: white;*/
+/*}*/
+
+/*div.nav ul li a:not(:only-child)::after {*/
+/*  padding-left: 4px;*/
+/*  content: ' ▾';*/
+/*}*/
+
+/*div.nav ul li ul li {*/
+/*  min-width: 190px;*/
+/*}*/
+
+/*div.nav ul li ul li a {*/
+/*  background: transparent;*/
+/*  color: #555;*/
+/*  border-bottom: 1px solid #DDE0E7;*/
+/*}*/
+
+/*div.nav ul li ul li a:hover,*/
+/*div.nav ul li ul li a:focus {*/
+/*  background: #eee;*/
+/*  color: #111;*/
+/*}*/
