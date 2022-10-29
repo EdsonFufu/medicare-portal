@@ -1,0 +1,157 @@
+
+<!-- Start Slider part -->
+<div class="page_banner bg4">
+  <div class="bread_cumbs">
+    <div class="container">
+      <div class="page_title_breadcumbs">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="#">Home</a>&#187;</li>
+          <li><a class="active" href="#">Products</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Slider part -->
+
+<!-- Start Shop page content -->
+<div class="shop_page_area">
+  <div class="container">
+    <div class="col-md-9 col-sm-8">
+      <div class="shop_content">
+        <div class="shop_title_sort">
+          <h3>All Products</h3>
+<!--          <div class="shop_sort">-->
+<!--            <ul>-->
+<!--              <li class="shop_srt">-->
+<!--                <select>-->
+<!--                  <option>Default Sorting</option>-->
+<!--                  <option>Price</option>-->
+<!--                  <option>New</option>-->
+<!--                </select>-->
+<!--              </li>-->
+<!--              <li><a href="#"><img src="images/shop_sort.png" alt="sort" /></a></li>-->
+<!--              <li><a href="#"><img src="images/shop_sort2.png" alt="sort" /></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+        </div>
+
+        <div class="all_products" *ngIf="products">
+
+
+          <div class="single_product" *ngFor="let product of products;let i = index">
+            <div class="prod_img">
+              <a href="{{baseUrl + '/product-detail/' + product._id}}"><img src="{{photoBaseUrl + product.imagePath}}" alt="{{product.title}}" /></a>
+              <div class="adcart_overly">
+                <p>{{product.description.length > 189 ? product.description.substring(0,189):product.description}}</p>
+                <a href="#">Add To cart</a>
+              </div>
+            </div>
+            <div class="prod_title_cart">
+              <div class="pro_title_star">
+                <h3><a href="{{baseUrl + 'product-detail/' + product._id}}">{{product.title}}</a></h3>
+              </div>
+              <div class="cart_pro">
+                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+              </div>
+            </div>
+            <div class="pro_price">
+              <p> TZS {{(product.discount ? product.discount  : product.price) | number:'2.' }} <del *ngIf="product.discount">TZS {{(product.discount ? product.price : product.discount ) | number:'2.' }}</del></p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="post_pagination shop_pagination">
+          <ul>
+            <li><a href="#">Prev</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <div class="shop_sidebar">
+        <div class="shop_src">
+          <input type="text" class="shop_src_field" />
+          <input type="submit" class="shop_src_btn"  value="src" />
+        </div>
+        <div class="shop_category">
+          <h3>Categories</h3>
+          <ul>
+            <li *ngFor="let category of categories; let i = index">
+               <a href="{{baseUrl + 'product/' + category._id}}">{{ category.name }} ({{category.totalProducts}})</a>
+            </li>
+          </ul>
+        </div>
+<!--        <div class="price_filter">-->
+<!--          <h3>Filter By Price</h3>-->
+<!--          <img src="images/shop_filter.png" alt="filter img" />-->
+<!--          <p>Price: <span>$07 — $129</span></p>-->
+<!--        </div>-->
+<!--        <div class="popular_product_slide">-->
+<!--          <h3>Popular Products</h3>-->
+<!--          <div class="popular_pro">-->
+<!--            <div class="product_carousel">-->
+<!--              <div class="single_product">-->
+<!--                <img src="images/product1.jpg" alt="Product" />-->
+<!--                <div class="prod_title_cart">-->
+<!--                  <div class="pro_title_star">-->
+<!--                    <h3><a href="#">Zandu rhumayog Forte</a></h3>-->
+<!--                    <ul>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="cart_pro">-->
+<!--                    <a href="#"><i class="fa fa-shopping-cart"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="pro_price">-->
+<!--                  <p>$10.00 <del>$13.00</del></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="single_product">-->
+<!--                <img src="/images/product1.jpg" alt="Product" />-->
+<!--                <div class="prod_title_cart">-->
+<!--                  <div class="pro_title_star">-->
+<!--                    <h3><a href="#">Zandu rhumayog Forte</a></h3>-->
+<!--                    <ul>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                      <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                  <div class="cart_pro">-->
+<!--                    <a href="#"><i class="fa fa-shopping-cart"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="pro_price">-->
+<!--                  <p>$10.00 <del>$13.00</del></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div class="product_tag">
+          <h3>Tags</h3>
+          <a *ngFor="let category of categories; let i = index" href="{{baseUrl + 'product/' + category._id}}">{{category.name}}</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Shop page content -->

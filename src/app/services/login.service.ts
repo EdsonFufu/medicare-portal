@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenStorageService} from "./token-storage.service";
 import {environment} from "../../environments/environment";
 import { map } from 'rxjs/operators';
+import {ActivatedRoute, Router} from "@angular/router";
 interface SignUp {
   first_name:string
   last_name:string
@@ -17,11 +18,13 @@ interface SignUp {
 export class LoginService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  returnUrl: string = "";
 
 
-  constructor(private http: HttpClient,private tokenStorage:TokenStorageService) {
+  constructor(private http: HttpClient,private tokenStorage:TokenStorageService, private route: ActivatedRoute,private router:Router) {
     this.currentUserSubject = new BehaviorSubject<User>(tokenStorage.getUser());
     this.currentUser = this.currentUserSubject.asObservable();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
@@ -54,6 +57,7 @@ export class LoginService {
         this.tokenStorage.saveToken(response.body.token);
         this.tokenStorage.saveUser(response.body.user)
         this.currentUserSubject.next(response.body.user);
+        this.reloadPage()
         return response.body.user;
       }));
   }
@@ -63,5 +67,9 @@ export class LoginService {
     this.tokenStorage.signOut();
     // @ts-ignore
     this.currentUserSubject.next(null);
+    this.router.navigate([this.returnUrl]);
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 }

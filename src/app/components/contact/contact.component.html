@@ -31,17 +31,17 @@
       <div class="contact_form">
         <h2>Leave Comment</h2>
         <div class="comment_form">
-          <form action="https://premiumlayers.com/html/medicare/contact_process.php" method="post">
+          <form [formGroup]="contactForm" (ngSubmit)="sendMessage()"  method="post">
             <div class="field">
-              <input type="text" class="name" placeholder="Name" name="name"/>
-              <input type="email" class="email" placeholder="Emial" name="email"/>
+              <input type="text" class="name" placeholder="Name" name="name" [formControlName]="'name'" />
+              <input type="email" class="email" placeholder="Emial" name="email" [formControlName]="'email'" />
             </div>
             <div class="field">
-              <input type="text" class="phone" placeholder="Phone" name="phone"/>
-              <input type="url" class="website" placeholder="Website" name="website"/>
+              <input type="text" class="phone" placeholder="Phone" name="phone" [formControlName]="'mobile'"/>
+              <input type="text" class="website" placeholder="Subject" name="subject" [formControlName]="'subject'"/>
             </div>
             <div class="field">
-              <textarea class="sms" placeholder="Message" name="message"></textarea>
+              <textarea class="sms" placeholder="Message" name="message" [formControlName]="'message'"></textarea>
             </div>
             <input type="submit" class="form_btn" value="Submit" name="submit"/>
           </form>
@@ -76,7 +76,7 @@
     <div class="booknow_btn">
       <div class="col-md-3 col-sm-3 paddingbothnone">
         <div class="your_app_img">
-          <img src="images/booking.png" alt="booking img" />
+          <img src="/images/booking.png" alt="booking img" />
         </div>
       </div>
       <div class="col-md-6 col-sm-5 paddingbothnone">

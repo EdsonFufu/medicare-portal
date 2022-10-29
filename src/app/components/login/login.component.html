@@ -28,8 +28,19 @@
               </div>
               <div class="sbill_field">
                 <input type="password" class="fieldful" [formControlName]="'password'"  placeholder="Password" />
+<!--                <div-->
+<!--                  class="alert alert-danger"-->
+<!--                  role="alert"-->
+<!--                  *ngIf="loginForm.errors && submitted"-->
+<!--                >-->
+<!--                  <div *ngIf="password.errors.required">Password is required</div>-->
+<!--                  <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>-->
+<!--                </div>-->
               </div>
               <div class="sbill_field_lst">
+                <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Login
+                </button>
                 <button type="submit" class="form_btn floatleft" value="Login" >Login</button> &nbsp; <button type="button" class="form_btn floatright" style="width: 150px" routerLink="/signup"> Create Account </button>
               </div>
             </form>

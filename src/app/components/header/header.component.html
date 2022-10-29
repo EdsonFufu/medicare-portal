@@ -39,12 +39,14 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="booking_cart">
-            <div class="cart_count">
-              <a href="#"><i class="fa fa-shopping-cart"></i> <span class="cart_co">2</span></a>
+            <div *ngIf="isLoggedIn()" class="cart_count">
+              <a routerLink="/cart"><i class="fa fa-shopping-cart"></i> <span class="cart_co">2</span></a>
             </div>
             <div class="book_now">
-<!--              <a routerLink="/appointment">Book Appointment</a>-->
-              <button class="form_btn"  routerLink="/login">Login</button>
+
+              <a *ngIf="!isLoggedIn()" class="form_btn"  routerLink="/login">Login</a>
+
+              <button *ngIf="isLoggedIn()" class="form_btn" (click) = "logout()">logout</button>
             </div>
           </div>
         </div>
@@ -77,9 +79,9 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav">
                         <li><a routerLink="/" [routerLinkActive]="['active']">Home</a></li>
-                        <li><a routerLink="/shopping" [routerLinkActive]="['active']"> Products </a></li>
-                        <li><a routerLink="/checkout" [routerLinkActive]="['active']"> Checkout </a></li>
-                        <li><a routerLink="shopping-detail" [routerLinkActive]="['active']">Product Details</a></li>
+                        <li><a routerLink="/product" [routerLinkActive]="['active']"> Products </a></li>
+<!--                        <li *ngIf="isLoggedIn()"><a routerLink="/checkout" [routerLinkActive]="['active']"> Checkout </a></li>-->
+                        <li *ngIf="isLoggedIn()"><a routerLink="/cart" [routerLinkActive]="['active']">Cart</a></li>
                         <li><a routerLink="contact" [routerLinkActive]="['active']">Contact</a></li>
                       </ul>
                     </div><!-- /.navbar-collapse -->

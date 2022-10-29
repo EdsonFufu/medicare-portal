@@ -1,1 +1,189 @@
-<p>product-detail works!</p>
+<!-- Start Slider part -->
+<div class="page_banner bg4">
+  <div class="bread_cumbs">
+    <div class="container">
+      <div class="page_title_breadcumbs">
+        <h3>Product Details</h3>
+        <ul>
+          <li><a href="#">Home</a>&#187;</li>
+          <li><a class="active" href="#">{{product.title}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Slider part -->
+
+<!-- Start Product Details -->
+<div class="shop_page_area">
+  <div class="container">
+    <div class="col-md-9 col-sm-8">
+      <div class="shop_content">
+        <div class="product_details">
+          <div class="detail_product_img">
+            <div class="pro_img_detail">
+              <div class="detail_main_img">
+                <a data-gal="prettyPhoto[pp_gal2]" href="{{photoBaseUrl + product.imagePath}}"><img src="{{photoBaseUrl + product.imagePath}}" alt="{{product.title}}" /></a>
+              </div>
+              <div class="detail_small_img">
+                <ul>
+                  <li><a data-gal="prettyPhoto[pp_gal2]" href="{{photoBaseUrl + product.imagePath}}" ><img class="thumbnail" width="100"  src="{{photoBaseUrl + product.imagePath}}" alt="{{product.title}}" /></a></li>
+                  <li><a data-gal="prettyPhoto[pp_gal2]" href="{{photoBaseUrl + product.imagePath}}" ><img class="thumbnail" width="100" src="{{photoBaseUrl + product.imagePath}}" alt="{{product.title}}" /></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="pro_text_details">
+              <div class="detail_title">
+                <h3>{{product.title}}</h3>
+                <div class="sing_rating">
+<!--                  <ul>-->
+<!--                    <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    <li><a class="reated" href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                    <li><a href="#"><i class="fa fa-star"></i></a></li>-->
+<!--                  </ul>-->
+                  <p>In Stock : {{product.available}} items</p>
+                </div>
+              </div>
+
+              <div class="pro_sing_price">
+                <h3> TZS {{(product.discount ? product.discount  : product.price) | number:'2.' }} <del *ngIf="product.discount">TZS {{(product.discount ? product.price : product.discount ) | number:'2.' }}</del></h3>
+              </div>
+
+              <div class="sing_add_cart">
+                <a href="#">Add To cart</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="pro_dese_single">
+          <h4>Product Discription</h4>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="pro_dese_single">
+          <h4>Additional Information</h4>
+          <p>{{product.information}}</p>
+        </div>
+
+        <div class="pro_review_tab">
+          <div id="parentHorizontalTab">
+            <ul class="resp-tabs-list hor_1">
+              <li>Specification</li>
+              <li>Reviews</li>
+              <li>Our Policy</li>
+            </ul>
+
+            <div class="resp-tabs-container hor_1">
+              <div>
+                <div class="lorem1">
+                  <p>Pellentesque turpis felis, dignissim sit amet sagittis ac, elemen augue. Aliquam vitae enim afd add risus. laoreet metus.elemen siquam elementum quisaugue.  emiquam vitae enim afd add risus., at laoreet metus.elemen siquam elementum quisaugue</p>
+                  <div class="tab_list">
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                        <li>Pellentesque sem ornare.</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="lorem2">
+                  <p>Pellentesque turpis felis, dignissim sit amet sagittis ac, elemen augue. Aliquam vitae enim afd add risus. laoreet metus.elemen siquam elementum quisaugue.  emiquam vitae enim afd add risus., at laoreet metus.elemen siquam elementum quisaugue</p>
+                  <div class="tab_list">
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                        <li>Pellentesque sem ornare.</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="lorem3">
+                  <p>Pellentesque turpis felis, dignissim sit amet sagittis ac, elemen augue. Aliquam vitae enim afd add risus. laoreet metus.elemen siquam elementum quisaugue.  emiquam vitae enim afd add risus., at laoreet metus.elemen siquam elementum quisaugue</p>
+                  <div class="tab_list">
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                        <li>Pellentesque sem ornare.</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                    <div class="single_tab_list">
+                      <ul>
+                        <li>Suspendisse a amet enim.</li>
+                        <li>Integer aliquam suscipit .</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <div class="shop_sidebar">
+        <div class="shop_src">
+          <input type="text" class="shop_src_field" />
+          <input type="submit" class="shop_src_btn"  value="src" />
+        </div>
+        <div class="shop_category">
+          <h3>Categories</h3>
+
+          <ul>
+            <li *ngFor="let category of categories; let i = index">
+              <a href="{{baseUrl + 'product/' + category._id}}">{{ category.name }} ({{category.totalProducts}})</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="product_tag">
+          <h3>Tags</h3>
+          <a *ngFor="let category of categories; let i = index" href="{{baseUrl + 'product/' + category._id}}">{{category.name}}</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Product Details -->
