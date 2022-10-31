@@ -6,7 +6,7 @@
         <h3>Shopping Cart</h3>
         <ul>
           <li><a href="#">Home</a>&#187;</li>
-          <li><a class="active" href="#">Shop</a></li>
+          <li><a class="active" href="#">Cart</a></li>
         </ul>
       </div>
     </div>
@@ -19,7 +19,8 @@
   <div class="container">
     <div class="single_cart_pro">
       <div class="col-md-12">
-        <form action="index.html">
+        <form [formGroup]="cartForm" (ngSubmit)="proceedCheckout()">
+
           <table class="table">
             <thead class="cart_header">
             <tr>
@@ -29,124 +30,34 @@
               <th>Total</th>
             </tr>
             </thead>
-            <tbody class="cartbody">
-            <tr class="sigle_cartpro">
-              <td>
-                <div class="pro_cart">
-                  <img src="images/cart_product.png" alt="cart img" />
-                  <h4>Zandu rhumayog Forte</h4>
-                  <ul>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                  </ul>
-                </div>
-              </td>
-              <td>
-                <div class="car_price">
-                  <p>$10.00</p>
-                </div>
-              </td>
-              <td>
-                <div class="pro_qut">
-                  <input type="number" value="2"/>
-                </div>
-              </td>
-              <td>
-                <div class="total_price_cart">
-                  <p>$20.00</p>
-                </div>
-              </td>
+            <tbody class="cartbody" *ngIf="totalItems < 0">
+            <tr>
+              <th colspan="4">No Items in Cart</th>
             </tr>
-            <tr class="sigle_cartpro">
+            </tbody>
+            <tbody class="cartbody" *ngIf="totalItems > 0 && cart.items && cart.items.length > 0">
+            <input type="text" [value]="cart._id" [formControlName]="'cartId'" />
+            <tr class="sigle_cartpro" *ngFor="let item of cart.items;let i = index">
               <td>
                 <div class="pro_cart">
-                  <img src="images/cart_product.png" alt="cart img" />
-                  <h4>Zandu rhumayog Forte</h4>
-                  <ul>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                  </ul>
+                  <img class="thumbnail" style="width: 50px;height: 50px;" src="{{photoBaseUrl + item.photo}}" alt="{{item.productName}}" />
+                  <h4>{{item.productName}}</h4>
                 </div>
               </td>
               <td>
                 <div class="car_price">
-                  <p>$10.00</p>
+                  <p>{{item.price | number:'2.'}}</p>
                 </div>
               </td>
               <td>
                 <div class="pro_qut">
-                  <input type="number" value="2"/>
+                  <input type="text" [value]="item.product" [formControlName]="'productId'" />
+                  <input type="number" [value]="item.quantity" [formControlName]="'quantity'" />
                 </div>
               </td>
               <td>
                 <div class="total_price_cart">
-                  <p>$20.00</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="sigle_cartpro">
-              <td>
-                <div class="pro_cart">
-                  <img src="images/cart_product.png" alt="cart img" />
-                  <h4>Zandu rhumayog Forte</h4>
-                  <ul>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                  </ul>
-                </div>
-              </td>
-              <td>
-                <div class="car_price">
-                  <p>$10.00</p>
-                </div>
-              </td>
-              <td>
-                <div class="pro_qut">
-                  <input type="number" value="2"/>
-                </div>
-              </td>
-              <td>
-                <div class="total_price_cart">
-                  <p>$20.00</p>
-                </div>
-              </td>
-            </tr>
-            <tr class="sigle_cartpro">
-              <td>
-                <div class="pro_cart">
-                  <img src="images/cart_product.png" alt="cart img" />
-                  <h4>Zandu rhumayog Forte</h4>
-                  <ul>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#" class="reated"><i class="fa fa-star"></i></a></li>
-                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                  </ul>
-                </div>
-              </td>
-              <td>
-                <div class="car_price">
-                  <p>$10.00</p>
-                </div>
-              </td>
-              <td>
-                <div class="pro_qut">
-                  <input type="number" value="2"/>
-                </div>
-              </td>
-              <td>
-                <div class="total_price_cart">
-                  <p>$20.00</p>
+                  <p>{{item.total | number:'2.'}}</p>
                 </div>
               </td>
             </tr>
@@ -168,8 +79,8 @@
               </td>
               <td>
                 <div class="total_p">
-                  <p>$60.00</p>
-                  <p>$02.00</p>
+                  <p>{{cart.total | number:'2.'}}</p>
+                  <p>TZS 12,000</p>
                 </div>
               </td>
             </tr>
@@ -184,13 +95,15 @@
                 <p class="fianl_total">Total</p>
               </td>
               <td>
-                <p class="fianl_rate">$62.00</p>
+                <p class="fianl_rate">TZS {{cart.total + 12000 | number:'2.'}}</p>
               </td>
             </tr>
             </tbody>
           </table>
           <div class="cart_btn_proce">
-            <input type="submit" class="procecartbtn" value="Proceed to checkout"/>
+            <a routerLink="/product" class="pull-left">Continue Shopping</a>
+
+            <input type="submit" class="procecartbtn pull-right" value="Proceed to checkout"/>
           </div>
         </form>
       </div>

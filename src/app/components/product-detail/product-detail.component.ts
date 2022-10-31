@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {CategoryService} from "../../services/category.service";
 import {environment} from "../../../environments/environment";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +18,7 @@ export class ProductDetailComponent implements OnInit {
   public baseUrl = `${environment.baseUrl}/`
   public photoBaseUrl = `${environment.productPhotoBaseUrl}`
 
-  constructor(private categoryService:CategoryService,private productService:ProductService,private route: ActivatedRoute) { }
+  constructor(private categoryService:CategoryService,private productService:ProductService,private route: ActivatedRoute,private cart:CartService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id')

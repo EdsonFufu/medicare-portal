@@ -22,7 +22,7 @@
       <div class="logo_contact_info_part">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="logo">
-            <a href="/"><img src="./assets/images/logo.png" alt="logo" /></a>
+            <a href="/"><img src="/assets/images/logo.png" alt="logo" /></a>
           </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -40,7 +40,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="booking_cart">
             <div *ngIf="isLoggedIn()" class="cart_count">
-              <a routerLink="/cart"><i class="fa fa-shopping-cart"></i> <span class="cart_co">2</span></a>
+              <a routerLink="/cart"><i class="fa fa-shopping-cart"></i> <span class="cart_co">{{totalItems}}</span></a>
             </div>
             <div class="book_now">
 

@@ -8,6 +8,7 @@ import {FormBuilder, FormControl, FormControlName, FormGroup, Validators} from "
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
+  submitted:boolean = false
 
   constructor(private formBuilder:FormBuilder) {
     this.contactForm = new FormGroup<any>({})
@@ -24,6 +25,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendMessage() {
+    this.submitted = true
 
   }
 }

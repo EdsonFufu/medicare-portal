@@ -45,7 +45,7 @@
               <a href="{{baseUrl + '/product-detail/' + product._id}}"><img src="{{photoBaseUrl + product.imagePath}}" alt="{{product.title}}" /></a>
               <div class="adcart_overly">
                 <p>{{product.description.length > 189 ? product.description.substring(0,189):product.description}}</p>
-                <a href="#">Add To cart</a>
+                <a href="{{baseUrl + 'cart/' + product._id}}">Add To cart</a>
               </div>
             </div>
             <div class="prod_title_cart">
@@ -53,7 +53,7 @@
                 <h3><a href="{{baseUrl + 'product-detail/' + product._id}}">{{product.title}}</a></h3>
               </div>
               <div class="cart_pro">
-                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                <a href="{{baseUrl + 'cart/' + product._id}}"><i class="fa fa-shopping-cart"></i></a>
               </div>
             </div>
             <div class="pro_price">

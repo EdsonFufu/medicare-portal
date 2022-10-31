@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import {CategoryService} from "../../services/category.service";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-product',
@@ -16,7 +17,7 @@ export class ProductComponent implements OnInit {
   public apiBaseUrl = `${environment.apiBaseUrl}`
   public baseUrl = `${environment.baseUrl}/`
   public photoBaseUrl = `${environment.productPhotoBaseUrl}`
-  constructor(private categoryService:CategoryService,private productService:ProductService,private route: ActivatedRoute) { }
+  constructor(private categoryService:CategoryService,private productService:ProductService,private route: ActivatedRoute,private cart:CartService) { }
 
   ngOnInit(): void {
      this.categoryService.get().subscribe(response => {

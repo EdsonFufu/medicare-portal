@@ -22,9 +22,9 @@ export class LoginService {
 
 
   constructor(private http: HttpClient,private tokenStorage:TokenStorageService, private route: ActivatedRoute,private router:Router) {
-    this.currentUserSubject = new BehaviorSubject<User>(tokenStorage.getUser());
-    this.currentUser = this.currentUserSubject.asObservable();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+      this.currentUserSubject = new BehaviorSubject<User>(tokenStorage.getUser());
+      this.currentUser = this.currentUserSubject.asObservable();
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
@@ -42,7 +42,8 @@ export class LoginService {
         this.tokenStorage.saveToken(response.body.token);
         this.tokenStorage.saveUser(response.body.user)
         this.currentUserSubject.next(response.body.user);
-        return response.body.user;
+        this.tokenStorage.saveSessionId(response.body.sessionId)
+        return response.body
       }));
   }
   createAccount(signUp:SignUp){
@@ -57,8 +58,9 @@ export class LoginService {
         this.tokenStorage.saveToken(response.body.token);
         this.tokenStorage.saveUser(response.body.user)
         this.currentUserSubject.next(response.body.user);
+        this.tokenStorage.saveSessionId(response.body.sessionId)
         this.reloadPage()
-        return response.body.user;
+        return  response.body.user
       }));
   }
 

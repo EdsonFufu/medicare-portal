@@ -6,7 +6,7 @@
         <h3>Product Details</h3>
         <ul>
           <li><a href="#">Home</a>&#187;</li>
-          <li><a class="active" href="#">{{product.title}}</a></li>
+          <li><a class="active" href="#">{{product.title ?? 'Product Details'}}</a></li>
         </ul>
       </div>
     </div>
@@ -52,7 +52,7 @@
               </div>
 
               <div class="sing_add_cart">
-                <a href="#">Add To cart</a>
+                <a href="{{baseUrl + 'cart/' + product._id}}">Add To cart</a>
               </div>
 
             </div>
