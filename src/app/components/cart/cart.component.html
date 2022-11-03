@@ -20,7 +20,8 @@
     <div class="single_cart_pro">
       <div class="col-md-12">
         <form [formGroup]="cartForm" (ngSubmit)="proceedCheckout()">
-
+          <input type="hidden"  [formControlName]="'sessionId'" />
+          <input type="hidden"  [formControlName]="'user'" />
           <table class="table">
             <thead class="cart_header">
             <tr>
@@ -36,7 +37,7 @@
             </tr>
             </tbody>
             <tbody class="cartbody" *ngIf="totalItems > 0 && cart.items && cart.items.length > 0">
-            <input type="text" [value]="cart._id" [formControlName]="'cartId'" />
+
             <tr class="sigle_cartpro" *ngFor="let item of cart.items;let i = index">
               <td>
                 <div class="pro_cart">
@@ -51,8 +52,8 @@
               </td>
               <td>
                 <div class="pro_qut">
-                  <input type="text" [value]="item.product" [formControlName]="'productId'" />
-                  <input type="number" [value]="item.quantity" [formControlName]="'quantity'" />
+<!--                  <input type="text" [value]="item.product" [disabled]="true"/>-->
+                  <input type="number" [value]="item.quantity" [disabled]="true"  />
                 </div>
               </td>
               <td>

@@ -51,14 +51,14 @@
                 <div class="sincheckbox">
                   <input type="checkbox"> <span>Checque payment</span>
                 </div>
-                <div class="sincheckbox">
-                  <input type="checkbox"> <span>Paypal</span>
-                </div>
+<!--                <div class="sincheckbox">-->
+<!--                  <input type="checkbox"> <span>Paypal</span>-->
+<!--                </div>-->
               </div>
-              <div class="sbill_field">
-                <input type="email" class="fieldlt" placeholder="Enter Your Paypal EMail ID" />
-                <input  type="email" class="fieldrt" placeholder="Confirm Your Paypal EMail ID" />
-              </div>
+<!--              <div class="sbill_field">-->
+<!--                <input type="email" class="fieldlt" placeholder="Enter Your Paypal EMail ID" />-->
+<!--                <input  type="email" class="fieldrt" placeholder="Confirm Your Paypal EMail ID" />-->
+<!--              </div>-->
               <div class="sbill_field_lst">
                 <input type="submit" class="bill_btn" value="Place an Order" />
               </div>
@@ -68,21 +68,20 @@
       </div>
     </div>
     <div class="col-md-3 col-sm-5 paddingbothnone">
-      <div class="checkoutsidebar">
-        <div class="yourorder_part">
+      <div class="checkoutsidebar" *ngIf="cart.items != null || settings != undefined">
+        <div class="yourorder_part" >
           <h3>Your Order</h3>
-          <div class="order_product">
+          <div class="order_product" >
             <h3><span class="prolttitle">Products</span><span class="prorttotal">Total</span></h3>
-            <p><span class="orpro">Zandu rhumayog Forte x 1</span><span class="orproall">$10.00</span></p>
-            <p><span class="orpro">Rhumayog Gold x 2</span><span class="orproall">$20.00</span></p>
-            <p><span class="orpro">Glucon d x 2</span><span class="orproall">$60.00</span></p>
+            <p *ngFor="let item of cart.items;let i = index">{{item.productName}} x {{item.quantity}} <span class="orproall">{{item.price | number:'2.'}}</span></p>
           </div>
-          <div class="calcu_product">
-            <p><span class="orpro">Subtotal</span><span class="orproall">$90.00</span></p>
-            <p><span class="orpro">Shipping Charge</span><span class="orproall">$10.00</span></p>
+          <div class="calcu_product" *ngIf="settings != undefined">
+            <p><span class="orpro">Subtotal</span><span class="orproall">{{cart.total | number:'2.'}}</span></p>
+            <p><span class="orpro">Tax Change</span><span class="orproall">{{(cart.total * settings.tax/100) | number:'2.'}}</span></p>
+            <p><span class="orpro">Shipping Charge</span><span class="orproall">{{settings.shipping | number:'2.'}}</span></p>
           </div>
           <div class="orchekout">
-            <p><span class="orpro">Total Amount</span><span class="orproall">$100.00</span></p>
+            <p *ngIf="settings != null"><span class="orpro">Total Amount</span><span class="orproall">{{cart.total + (cart.total * settings.tax/100) + settings.shipping | number:'2.'}}</span></p>
           </div>
         </div>
       </div>

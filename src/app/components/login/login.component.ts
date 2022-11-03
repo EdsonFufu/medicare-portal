@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.loginForm.getRawValue().username,this.loginForm.getRawValue().password).subscribe(
         data => {
           console.log(data);
+          this.alertService.success("Login Successfull",true);
           this.router.navigate([this.returnUrl]);
         },
         error=>{

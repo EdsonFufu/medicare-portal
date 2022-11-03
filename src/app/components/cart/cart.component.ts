@@ -4,6 +4,7 @@ import {CartService} from "../../services/cart.service";
 import {TokenStorageService} from "../../services/token-storage.service";
 import {environment} from "../../../environments/environment";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CartDetailService} from "../../services/cart-detail.service";
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit {
   public photoBaseUrl = `${environment.productPhotoBaseUrl}`
   totalItems:Number = 0
   cartForm: FormGroup;
-  constructor(private route:ActivatedRoute,private cartService:CartService,private tokenStorage:TokenStorageService,private router:Router,private formBuilder:FormBuilder) {
+  constructor(private route:ActivatedRoute,private cartService:CartService,private tokenStorage:TokenStorageService,private router:Router,private formBuilder:FormBuilder,private cartDetailService:CartDetailService) {
     this.cartForm = new FormGroup<any>({})
   }
 
@@ -40,13 +41,13 @@ export class CartComponent implements OnInit {
 
     this.router.navigate(['/cart'])
     this.cartForm = this.formBuilder.group({
-      quantity: new FormControl("",[Validators.required]),
-      productId:new FormControl("",[Validators.required]),
-      cartId:new FormControl("",[Validators.required])
+      sessionId: new FormControl(this.tokenStorage.getSessionId(),[Validators.required]),
+      user:new FormControl(this.tokenStorage.getUser()._id,[Validators.required])
     })
   }
-
   proceedCheckout() {
-
+    this.cartDetailService.sendCartDetailForCheckout(this.cartForm.getRawValue())
+    this.router.navigate(["/checkout"]);
   }
+
 }
