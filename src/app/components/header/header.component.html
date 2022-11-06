@@ -78,9 +78,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav">
-                        <li><a routerLink="/" [routerLinkActive]="['active']">Home</a></li>
+                        <li><a routerLink="/" [routerLinkActive]="['active'] ">Home</a></li>
                         <li><a routerLink="/product" [routerLinkActive]="['active']"> Products </a></li>
-<!--                        <li *ngIf="isLoggedIn()"><a routerLink="/checkout" [routerLinkActive]="['active']"> Checkout </a></li>-->
+                        <li *ngIf="isLoggedIn()"><a routerLink="/order" [routerLinkActive]="['active']"> Orders </a></li>
                         <li *ngIf="isLoggedIn()"><a routerLink="/cart" [routerLinkActive]="['active']">Cart</a></li>
                         <li><a routerLink="contact" [routerLinkActive]="['active']">Contact</a></li>
                       </ul>

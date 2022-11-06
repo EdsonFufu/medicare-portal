@@ -21,6 +21,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { SignupComponent } from './components/signup/signup.component';
 import { ProductComponent } from './components/product/product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderComponent } from './components/order/order.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterTopComponent,
     FooterBottomComponent,
     SignupComponent,
-    ProductComponent
+    ProductComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

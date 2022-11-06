@@ -14,4 +14,8 @@ export class CartDetailService {
   public sendCartDetailForCheckout(cart:Cart){
     this.cardDetailSubject.next(cart)
   }
+
+  public getCartDetailForCheckout(){
+    return this.cardDetailSubject.asObservable();
+  }
 }

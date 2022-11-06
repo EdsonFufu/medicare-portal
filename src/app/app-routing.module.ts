@@ -11,15 +11,19 @@ import {ContactComponent} from "./components/contact/contact.component";
 import {ProductComponent} from "./components/product/product.component";
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {CartComponent} from "./components/cart/cart.component";
+import {InvoiceComponent} from "./components/invoice/invoice.component";
+import {OrderComponent} from "./components/order/order.component";
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent,runGuardsAndResolvers: 'always' },
   { path: 'profile', component: ProfileComponent },
   { path: 'product', component: ProductComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'dashboard',component: HomeComponent},
   { path: 'cart', component: CartComponent},
   { path: 'checkout', component: CheckOutComponent},
+  { path: 'order', component: OrderComponent},
+  { path: 'invoice', component: InvoiceComponent},
   { path: 'cart/:id', component: CartComponent},
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'checkout', component: CheckOutComponent },
@@ -32,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

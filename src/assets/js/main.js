@@ -2,13 +2,13 @@
     'use strict';
 
     jQuery(document).ready(function () {
-        
-        
+
+
         //slicknav
         $('ul.nav.navbar-nav').slicknav({
             allowParentLinks: true
         });
-        
+
         // Faq Filter
         $('#faqfilter').mixItUp({
             load: {
@@ -73,7 +73,7 @@
         });
 
         // DatePicker
-        $('.datepicker').datepicker();	
+        $('.datepicker').datepicker();
 
         //Horizontal Tab
         $('#parentHorizontalTab').easyResponsiveTabs({
@@ -88,19 +88,19 @@
                 $name.text($tab.text());
                 $info.show();
             }
-        });	
+        });
 
         $(".back_top").click(function () {
             $("html, body").animate({scrollTop: 0}, 1000);
         });
-        
-        
+
+
         $('.tp-banner').revolution({
             delay: 9000,
             startwidth: 960,
             startheight: 650,
             startWithSlide: 0,
- 
+
             fullScreenAlignForce: "off",
             autoHeight: "on",
             minHeight: "off",
@@ -176,7 +176,7 @@
 
             shadow: 0
         });
-        
+
 
     });
 
@@ -187,6 +187,8 @@
             $('.back_top').fadeOut();
         }
     });
+
+
 
 
 

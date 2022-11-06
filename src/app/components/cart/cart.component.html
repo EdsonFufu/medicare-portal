@@ -36,7 +36,7 @@
               <th colspan="4">No Items in Cart</th>
             </tr>
             </tbody>
-            <tbody class="cartbody" *ngIf="totalItems > 0 && cart.items && cart.items.length > 0">
+            <tbody class="cartbody" *ngIf="cart != null">
 
             <tr class="sigle_cartpro" *ngFor="let item of cart.items;let i = index">
               <td>
@@ -47,7 +47,7 @@
               </td>
               <td>
                 <div class="car_price">
-                  <p>{{item.price | number:'2.'}}</p>
+                  <p>{{item.price}}</p>
                 </div>
               </td>
               <td>
@@ -58,7 +58,7 @@
               </td>
               <td>
                 <div class="total_price_cart">
-                  <p>{{item.total | number:'2.'}}</p>
+                  <p>{{item.total}}</p>
                 </div>
               </td>
             </tr>
@@ -80,8 +80,8 @@
               </td>
               <td>
                 <div class="total_p">
-                  <p>{{cart.total | number:'2.'}}</p>
-                  <p>TZS 12,000</p>
+                  <p>{{cart.total}}</p>
+                  <p>{{cart.total}}</p>
                 </div>
               </td>
             </tr>
@@ -96,7 +96,7 @@
                 <p class="fianl_total">Total</p>
               </td>
               <td>
-                <p class="fianl_rate">TZS {{cart.total + 12000 | number:'2.'}}</p>
+                <p class="fianl_rate">TZS {{cart.total}}</p>
               </td>
             </tr>
             </tbody>
